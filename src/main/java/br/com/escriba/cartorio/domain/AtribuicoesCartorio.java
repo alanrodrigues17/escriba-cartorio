@@ -1,0 +1,33 @@
+package br.com.escriba.cartorio.domain;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+public class AtribuicoesCartorio {
+	
+	@Id
+	@Column(length = 20, nullable = false)
+	@SequenceGenerator(name = "SeqC", sequenceName = "seq_tipo_c")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SeqC")
+	private int id;
+	
+	@Column(length = 50, nullable = false)
+	private String nome;
+	
+	@Column(nullable = false)
+	private Boolean situacao = Boolean.TRUE;
+
+}
